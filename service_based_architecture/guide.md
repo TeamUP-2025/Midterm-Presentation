@@ -1,4 +1,9 @@
-Run these files in seperate terminals
+At service_based_architecture folder
+```commandline
+cd service_based_architecture
+```
+
+Run these files in separate terminals
 ```commandline
 
 ```
