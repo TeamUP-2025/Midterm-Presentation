@@ -1,0 +1,111 @@
+[
+  {
+    "id": 1,
+    "name": "AI-Video-Protector",
+    "programming_lang_ratio": {
+      "Python": 80,
+      "C++": 15,
+      "Shell": 5
+    },
+    "github_link": "https://github.com/devMaster99/AI-Video-Protector"
+  },
+  {
+    "id": 2,
+    "name": "TeamUp",
+    "programming_lang_ratio": {
+      "Python": 50,
+      "JavaScript": 40,
+      "CSS": 10
+    },
+    "github_link": "https://github.com/devMaster99/TeamUp"
+  },
+  {
+    "id": 3,
+    "name": "MicroKernel-OS",
+    "programming_lang_ratio": {
+      "C": 70,
+      "Assembly": 20,
+      "Python": 10
+    },
+    "github_link": "https://github.com/devMaster99/MicroKernel-OS"
+  },
+  {
+    "id": 4,
+    "name": "GameEngineX",
+    "programming_lang_ratio": {
+      "C++": 60,
+      "C#": 30,
+      "Python": 10
+    },
+    "github_link": "https://github.com/codeNinja42/GameEngineX"
+  },
+  {
+    "id": 5,
+    "name": "SmartBot",
+    "programming_lang_ratio": {
+      "Python": 85,
+      "JavaScript": 10,
+      "Go": 5
+    },
+    "github_link": "https://github.com/codeNinja42/SmartBot"
+  },
+  {
+    "id": 6,
+    "name": "LinuxTools",
+    "programming_lang_ratio": {
+      "C": 90,
+      "Shell": 10
+    },
+    "github_link": "https://github.com/openSourceGuru/LinuxTools"
+  },
+  {
+    "id": 7,
+    "name": "WebSecure",
+    "programming_lang_ratio": {
+      "Python": 60,
+      "JavaScript": 25,
+      "Rust": 15
+    },
+    "github_link": "https://github.com/openSourceGuru/WebSecure"
+  },
+  {
+    "id": 8,
+    "name": "UI-Library",
+    "programming_lang_ratio": {
+      "JavaScript": 70,
+      "TypeScript": 20,
+      "CSS": 10
+    },
+    "github_link": "https://github.com/frontendQueen/UI-Library"
+  },
+  {
+    "id": 9,
+    "name": "ReactMagic",
+    "programming_lang_ratio": {
+      "JavaScript": 80,
+      "HTML": 15,
+      "CSS": 5
+    },
+    "github_link": "https://github.com/frontendQueen/ReactMagic"
+  },
+  {
+    "id": 10,
+    "name": "BigDataAnalyzer",
+    "programming_lang_ratio": {
+      "Python": 75,
+      "R": 20,
+      "Scala": 5
+    },
+    "github_link": "https://github.com/dataCracker/BigDataAnalyzer"
+  },
+  {
+    "id": 11,
+    "name": "HadoopHelper",
+    "programming_lang_ratio": {
+      "Java": 65,
+      "Scala": 25,
+      "Python": 10
+    },
+    "github_link": "https://github.com/dataCracker/HadoopHelper"
+  }
+]

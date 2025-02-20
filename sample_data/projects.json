@@ -1,0 +1,57 @@
+[
+  {
+    "project_name": "AI-Video-Protector",
+    "type": "Machine Learning",
+    "repos": [1]
+  },
+  {
+    "project_name": "TeamUp",
+    "type": "Web Application",
+    "repos": [2]
+  },
+  {
+    "project_name": "MicroKernel-OS",
+    "type": "Operating System",
+    "repos": [3]
+  },
+  {
+    "project_name": "GameEngineX",
+    "type": "Game Development",
+    "repos": [4]
+  },
+  {
+    "project_name": "SmartBot",
+    "type": "AI Chatbot",
+    "repos": [5]
+  },
+  {
+    "project_name": "LinuxTools",
+    "type": "System Utilities",
+    "repos": [6]
+  },
+  {
+    "project_name": "WebSecure",
+    "type": "Cybersecurity",
+    "repos": [7]
+  },
+  {
+    "project_name": "UI-Library",
+    "type": "Frontend Framework",
+    "repos": [8]
+  },
+  {
+    "project_name": "ReactMagic",
+    "type": "Web Application",
+    "repos": [9]
+  },
+  {
+    "project_name": "BigDataAnalyzer",
+    "type": "Data Science",
+    "repos": [10]
+  },
+  {
+    "project_name": "HadoopHelper",
+    "type": "Big Data",
+    "repos": [11]
+  }
+]

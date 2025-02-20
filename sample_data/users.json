@@ -1,0 +1,38 @@
+[
+  {
+    "username": "devMaster99",
+    "repos": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "username": "codeNinja42",
+    "repos": [
+      4,
+      5
+    ]
+  },
+  {
+    "username": "openSourceGuru",
+    "repos": [
+      6,
+      7
+    ]
+  },
+  {
+    "username": "frontendQueen",
+    "repos": [
+      8,
+      9
+    ]
+  },
+  {
+    "username": "dataCracker",
+    "repos": [
+      10,
+      11
+    ]
+  }
+]
