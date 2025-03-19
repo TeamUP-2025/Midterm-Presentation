@@ -23,4 +23,5 @@ python pipeline_architecture.py
 python microkernel_architecture.py
 ```
 
-### Service-based Architecture : see [guide](./service_based_architecture/guide.md)
+### Service-based Architecture : 
+visit [guide](./service_based_architecture/guide.md)
