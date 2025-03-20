@@ -1,0 +1,172 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: space-based-app
+---
+# Redis Master Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-master
+  namespace: space-based-app
+  labels:
+    app: redis-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-master
+  template:
+    metadata:
+      labels:
+        app: redis-master
+    spec:
+      containers:
+      - name: redis-master
+        image: redis:6.2
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
+---
+# Redis Master Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-master
+  namespace: space-based-app
+spec:
+  ports:
+  - port: 6379
+    targetPort: 6379
+  selector:
+    app: redis-master
+  type: ClusterIP
+---
+# Redis Slave Deployment (for replication and autoscaling)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-slave
+  namespace: space-based-app
+  labels:
+    app: redis-slave
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redis-slave
+  template:
+    metadata:
+      labels:
+        app: redis-slave
+    spec:
+      containers:
+      - name: redis-slave
+        image: redis:6.2
+        command:
+          - redis-server
+          - "--replicaof"
+          # The slave points to the Redis master via its DNS name.
+          - "redis-master.space-based-app.svc.cluster.local"
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
+---
+# Go Webserver Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-webserver
+  namespace: space-based-app
+  labels:
+    app: go-webserver
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-webserver
+  template:
+    metadata:
+      labels:
+        app: go-webserver
+    spec:
+      containers:
+      - name: go-webserver
+        image: your-docker-hub-username/go-webserver:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: REDIS_ADDR
+          # The Go app connects to the Redis master service.
+          value: "redis-master.space-based-app.svc.cluster.local:6379"
+---
+# Go Webserver Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-webserver
+  namespace: space-based-app
+spec:
+  selector:
+    app: go-webserver
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+  type: ClusterIP
+---
+# Horizontal Pod Autoscaler for Go Webserver
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: go-webserver-hpa
+  namespace: space-based-app
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: go-webserver
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
+---
+# Horizontal Pod Autoscaler for Redis Slave
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: redis-slave-hpa
+  namespace: space-based-app
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: redis-slave
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60
+
